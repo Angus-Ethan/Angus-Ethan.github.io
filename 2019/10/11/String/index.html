@@ -3,19 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>String | Angus-Ethan</title>
+  <title>字符串 | Angus-Ethan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
+  <meta name="description" content="C++中的字符串包括两种，一种是C++标准库提供的string类型，使用时需要#include将string类型包含到程序中；一种是C类型的字符串，即char* string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];">
 <meta property="og:type" content="article">
-<meta property="og:title" content="String">
+<meta property="og:title" content="字符串">
 <meta property="og:url" content="http://yoursite.com/2019/10/11/String/index.html">
 <meta property="og:site_name" content="Angus-Ethan">
-<meta property="og:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
+<meta property="og:description" content="C++中的字符串包括两种，一种是C++标准库提供的string类型，使用时需要#include将string类型包含到程序中；一种是C类型的字符串，即char* string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-11T06:41:05.238Z">
+<meta property="og:updated_time" content="2019-10-11T06:55:57.091Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="String">
-<meta name="twitter:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
+<meta name="twitter:title" content="字符串">
+<meta name="twitter:description" content="C++中的字符串包括两种，一种是C++标准库提供的string类型，使用时需要#include将string类型包含到程序中；一种是C类型的字符串，即char* string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];">
   
   
     <link rel="icon" href="/favicon.png">
@@ -92,7 +92,7 @@
       <ul>
         
           <li>
-            <a href="/2019/10/11/String/">String</a>
+            <a href="/2019/10/11/String/">字符串</a>
           </li>
         
           <li>
@@ -143,7 +143,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      String
+      字符串
     </h1>
   
 
@@ -151,7 +151,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>C++ 标准库提供了 string 类类型，使用时需要#include<string>将string类型包含到程序中</string></p>
+        <p>C++中的字符串包括两种，一种是C++标准库提供的string类型，使用时需要#include将string类型包含到程序中；一种是C类型的字符串，即char*</p>
 <h2 id="string类中的四个缺省方法"><a href="#string类中的四个缺省方法" class="headerlink" title="string类中的四个缺省方法"></a>string类中的四个缺省方法</h2><h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code>MyString(char *data = nullptr)
 {
     if(data == nullptr)
@@ -178,7 +178,7 @@
         delete[] m_data;
         m_data = nullptr;
     }
-}</code></pre><h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><pre><code>const MyString&amp; operator=(const MyString &amp;other)
+}</code></pre><h4 id="赋值运算符重载"><a href="#赋值运算符重载" class="headerlink" title="赋值运算符重载"></a>赋值运算符重载</h4><pre><code>const MyString&amp; operator=(const MyString &amp;other)
 {
     if(this == &amp;other){
         return *this;
@@ -188,7 +188,7 @@
     assert(m_data != nullptr);
     strcpy(m_data, other.m_data);
     return *this;
-}</code></pre><h2 id="string类的常用方法"><a href="#string类的常用方法" class="headerlink" title="string类的常用方法"></a>string类的常用方法</h2><h4 id="复制函数"><a href="#复制函数" class="headerlink" title="复制函数"></a>复制函数</h4><pre><code>char* MyStrCpy(char *pDest, const char *pSrc)
+}</code></pre><h2 id="char-字符串的常用方法"><a href="#char-字符串的常用方法" class="headerlink" title="char*字符串的常用方法"></a>char*字符串的常用方法</h2><h4 id="复制函数"><a href="#复制函数" class="headerlink" title="复制函数"></a>复制函数</h4><pre><code>char* MyStrCpy(char *pDest, const char *pSrc)
 {
     if(pDest == nullptr || pSrc == nullptr)
     {
@@ -210,11 +210,22 @@
     char *pIter = pDest + strlen(pDest);
     while((*pIter++ = *pSrc++) != &apos;\0&apos;);
     return pDest;
+}</code></pre><h4 id="字符串类型转数字"><a href="#字符串类型转数字" class="headerlink" title="字符串类型转数字"></a>字符串类型转数字</h4><pre><code>int Myatoi(const char *pString)
+{
+    assert(pString != nullptr);
+    const int len = strlen(pString);
+    int value = 0;
+    int times = 1;
+    for(int i = len - 1; i &gt;= 0; --i,times *= 10)
+    {
+        value += (pString[i] - &apos;0&apos;) * times;
+    }
+    return value;
 }</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/String/" data-id="ck1lrim1q0001movqag4ngano" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/11/String/" data-id="ck1ls1sh20000ygvq4jnvmxo8" class="article-share-link">Share</a>
       
       
     </footer>
