@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Angus-Ethan">
 <meta property="og:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-11T06:28:08.901Z">
+<meta property="og:updated_time" content="2019-10-11T06:41:05.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String">
 <meta name="twitter:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
@@ -152,7 +152,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>C++ 标准库提供了 string 类类型，使用时需要#include<string>将string类型包含到程序中</string></p>
-<h2 id="string类中的四个缺省方法"><a href="#string类中的四个缺省方法" class="headerlink" title="string类中的四个缺省方法"></a>string类中的四个缺省方法</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code>MyString(char *data = nullptr)
+<h2 id="string类中的四个缺省方法"><a href="#string类中的四个缺省方法" class="headerlink" title="string类中的四个缺省方法"></a>string类中的四个缺省方法</h2><h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><pre><code>MyString(char *data = nullptr)
 {
     if(data == nullptr)
     {
@@ -166,19 +166,19 @@
         assert(m_data != nullptr);
         strcpy(m_data, data);
     }
-}</code></pre><h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><pre><code>MyString(const MyString &amp;other)
+}</code></pre><h4 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h4><pre><code>MyString(const MyString &amp;other)
 {
     m_data = new char[strlen(other.m_data) + 1];
     assert(m_data != nullptr);
     strcpy(m_data, other.m_data);
-}</code></pre><h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><pre><code>~MyString()
+}</code></pre><h4 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h4><pre><code>~MyString()
 {
     if(m_data != nullptr)
     {
         delete[] m_data;
         m_data = nullptr;
     }
-}</code></pre><h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><pre><code>const MyString&amp; operator=(const MyString &amp;other)
+}</code></pre><h4 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h4><pre><code>const MyString&amp; operator=(const MyString &amp;other)
 {
     if(this == &amp;other){
         return *this;
@@ -188,11 +188,33 @@
     assert(m_data != nullptr);
     strcpy(m_data, other.m_data);
     return *this;
+}</code></pre><h2 id="string类的常用方法"><a href="#string类的常用方法" class="headerlink" title="string类的常用方法"></a>string类的常用方法</h2><h4 id="复制函数"><a href="#复制函数" class="headerlink" title="复制函数"></a>复制函数</h4><pre><code>char* MyStrCpy(char *pDest, const char *pSrc)
+{
+    if(pDest == nullptr || pSrc == nullptr)
+    {
+        return nullptr;
+    }
+    if(pDest == pSrc)
+    {
+        return pDest;
+    }
+    char *pIter = pDest;
+    while((*pIter++ = *pSrc++) != &apos;\0&apos;);
+    return pDest;
+}</code></pre><h4 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h4><pre><code>char* MyStrCat(char *pDest, const char *pSrc)
+{
+    if(pDest == nullptr || pSrc == nullptr)
+    {
+        return nullptr;
+    }
+    char *pIter = pDest + strlen(pDest);
+    while((*pIter++ = *pSrc++) != &apos;\0&apos;);
+    return pDest;
 }</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/11/String/" data-id="ck1lr2cs00000w4vql8376wj0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/11/String/" data-id="ck1lrim1q0001movqag4ngano" class="article-share-link">Share</a>
       
       
     </footer>
