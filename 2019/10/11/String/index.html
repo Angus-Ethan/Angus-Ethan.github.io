@@ -3,15 +3,19 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019/10 | Angus-Ethan</title>
+  <title>String | Angus-Ethan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Angus-Ethan">
-<meta property="og:url" content="http://yoursite.com/archives/2019/10/page/2/index.html">
+  <meta name="description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="String">
+<meta property="og:url" content="http://yoursite.com/2019/10/11/String/index.html">
 <meta property="og:site_name" content="Angus-Ethan">
+<meta property="og:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-11T06:28:08.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angus-Ethan">
+<meta name="twitter:title" content="String">
+<meta name="twitter:description" content="C++ 标准库提供了 string 类类型，使用时需要#include将string类型包含到程序中 string类中的四个缺省方法构造函数MyString(char *data = nullptr) {     if(data == nullptr)     {         m_data = new char[1];         assert(m_data != nullptr);">
   
   
     <link rel="icon" href="/favicon.png">
@@ -125,44 +129,89 @@
   
 </aside>
         
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/10/04/myIndex/" class="archive-article-date">
-  <time datetime="2019-10-04T03:36:52.909Z" itemprop="datePublished">Oct 4</time>
+        <section id="main"><article id="post-String" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/11/String/" class="article-date">
+  <time datetime="2019-10-11T06:17:20.718Z" itemprop="datePublished">2019-10-11</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/04/myIndex/">个人主页</a>
+    <h1 class="article-title" itemprop="name">
+      String
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>C++ 标准库提供了 string 类类型，使用时需要#include<string>将string类型包含到程序中</string></p>
+<h2 id="string类中的四个缺省方法"><a href="#string类中的四个缺省方法" class="headerlink" title="string类中的四个缺省方法"></a>string类中的四个缺省方法</h2><h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><pre><code>MyString(char *data = nullptr)
+{
+    if(data == nullptr)
+    {
+        m_data = new char[1];
+        assert(m_data != nullptr);
+        *m_data = &apos;\0&apos;;
+    }
+    else
+    {
+        m_data = new char[strlen(data) + 1];
+        assert(m_data != nullptr);
+        strcpy(m_data, data);
+    }
+}</code></pre><h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><pre><code>MyString(const MyString &amp;other)
+{
+    m_data = new char[strlen(other.m_data) + 1];
+    assert(m_data != nullptr);
+    strcpy(m_data, other.m_data);
+}</code></pre><h3 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h3><pre><code>~MyString()
+{
+    if(m_data != nullptr)
+    {
+        delete[] m_data;
+        m_data = nullptr;
+    }
+}</code></pre><h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><pre><code>const MyString&amp; operator=(const MyString &amp;other)
+{
+    if(this == &amp;other){
+        return *this;
+    }
+    delete[] m_data;
+    m_data = new char[strlen(other.m_data) + 1];
+    assert(m_data != nullptr);
+    strcpy(m_data, other.m_data);
+    return *this;
+}</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/11/String/" data-id="ck1lr2cs00000w4vql8376wj0" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/04/myIndex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">个人主页</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2019/10/">&laquo; Prev</a><a class="page-number" href="/archives/2019/10/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2019/10/page/3/">3</a><a class="extend next" rel="next" href="/archives/2019/10/page/3/">Next &raquo;</a>
-  </nav>
 </section>
       </div>
       <footer id="footer">
